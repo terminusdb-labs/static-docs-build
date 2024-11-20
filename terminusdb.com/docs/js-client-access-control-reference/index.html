@@ -1,0 +1,1089 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><title>Access Control with the JavaScript Client Reference Guide</title><meta property="og:title" content="Access Control with the JavaScript Client Reference Guide"/><meta name="description" content="A reference guide to help you understand access control using the JavaScript Client"/><meta property="og:image" content="https://assets.terminusdb.com/docs/technical-documentation-terminuscms-og.png"/><meta name="next-head-count" content="6"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preload" href="../_next/static/css/1d8c06baee187bc7.css" as="style"/><link rel="stylesheet" href="../_next/static/css/1d8c06baee187bc7.css" data-n-g=""/><link rel="preload" href="../_next/static/css/c95096fc0885ed51.css" as="style"/><link rel="stylesheet" href="../_next/static/css/c95096fc0885ed51.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="../_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="../darkmode.js" defer="" data-nscript="beforeInteractive"></script><script src="../_next/static/chunks/webpack-2040b28e8eb4516c.js" defer=""></script><script src="../_next/static/chunks/framework-73b8966a3c579ab0.js" defer=""></script><script src="../_next/static/chunks/main-7586df44c3dddcee.js" defer=""></script><script src="../_next/static/chunks/pages/_app-271c10a3d7eb0331.js" defer=""></script><script src="../_next/static/chunks/517-29d96564d74352f3.js" defer=""></script><script src="../_next/static/chunks/186-4229ef620b60a5e9.js" defer=""></script><script src="../_next/static/chunks/pages/[name]-b57824158fb5d2df.js" defer=""></script><script src="../_next/static/865kbN8-rRJQPWszKdnKZ/_buildManifest.js" defer=""></script><script src="../_next/static/865kbN8-rRJQPWszKdnKZ/_ssgManifest.js" defer=""></script><style data-href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600&family=Lexend+Deca&display=swap">@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/barlowsemicondensed/v15/wlpigxjLBV1hqnzfr-F8sEYMB0Yybp0mudRfp66PAw.woff) format('woff')}@font-face{font-family:'Lexend Deca';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/lexenddeca/v21/K2FifZFYk-dHSE0UPPuwQ7CrD94i-NCKm-U48M1Arw.woff) format('woff')}@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/barlowsemicondensed/v15/wlpigxjLBV1hqnzfr-F8sEYMB0Yybp0mudRfp66_CGslqZ6GfVK5.woff2) format('woff2');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/barlowsemicondensed/v15/wlpigxjLBV1hqnzfr-F8sEYMB0Yybp0mudRfp66_CWslqZ6GfVK5.woff2) format('woff2');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Barlow Semi Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/barlowsemicondensed/v15/wlpigxjLBV1hqnzfr-F8sEYMB0Yybp0mudRfp66_B2slqZ6GfQ.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}@font-face{font-family:'Lexend Deca';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/lexenddeca/v21/K2FifZFYk-dHSE0UPPuwQ7CrD94i-NCKm-U48M1wpBnFirZPl3v-qzs.woff) format('woff');unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}@font-face{font-family:'Lexend Deca';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/lexenddeca/v21/K2FifZFYk-dHSE0UPPuwQ7CrD94i-NCKm-U48M1wpRnFirZPl3v-qzs.woff) format('woff');unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Lexend Deca';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/lexenddeca/v21/K2FifZFYk-dHSE0UPPuwQ7CrD94i-NCKm-U48M1wqxnFirZPl3v-.woff) format('woff');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}</style></head><body class="antialiased dark:bg-gray-900"><div id="__next"><header class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-800"><nav class="border-gray-200 bg-white dark:bg-gray-800"><div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4"><button data-collapse-toggle="sidebar-multi-level-sidebar" type="button" class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="sidebar-multi-level-sidebar" aria-expanded="false"><span class="sr-only">Open menu</span><svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg></button><a href="https://terminusdb.com/" class="flex items-center pl-2.5"><img src="../../../assets.terminusdb.com/docs/TerminusDB-Logo.svg" class="mb-0 mt-0" width="250" height="250" decoding="async" alt="TerminusDB Logo"/></a><div class="flex md:order-2"></div></div></nav></header><div class="max-w-8xl container mx-auto w-full px-4"><div class="lg:flex"><aside id="sidebar-multi-level-sidebar" class="fixed inset-0 z-20 hidden h-full w-72 flex-none lg:static lg:block lg:h-auto lg:w-96 lg:overflow-y-visible lg:pt-0" aria-labelledby="sidebar-label"><div id="navWrapper" class="scrolling-touch max-w-2xs top:24 z-20 h-full overflow-y-auto bg-white dark:bg-gray-900 lg:sticky lg:top-28 lg:mr-0 lg:block lg:h-[calc(100vh-3rem)]"><nav id="nav" class="sticky?lg:h-(screen-18) px-1 pb-20 pl-3 pt-16 text-base font-normal lg:pb-20 lg:pl-0 lg:pt-2 lg:text-sm" aria-label="Docs navigation"><ul class="tdb__li space-y-2 font-medium "><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-barlow font-normal" aria-controls="Start_with_TerminusCMS" data-collapse-toggle="Start_with_TerminusCMS"><span class="flex-1 whitespace-nowrap text-left">Start with TerminusCMS</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Start_with_TerminusCMS" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../get-started/index.html"><span>Get Started</span></a></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Product_Tour" data-collapse-toggle="Product_Tour"><a class="tdb__menu__links" href="../product-tour/index.html"><span class="flex-1 whitespace-nowrap text-left">Product Tour</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Product_Tour" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../projects-terminuscms-tour/index.html">Overview</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../manage-teams-users-terminuscms-tour/index.html">Teams &amp; Users</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../content-curation-terminuscms-tour/index.html">Curate Data</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../change-request-workflows-terminuscms-tour/index.html">Change Requests</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../graphql-and-woql-query-terminuscms-tour/index.html">GraphQL &amp; WOQL Query</a></li></ul></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../how-to-connect-terminuscms/index.html"><span>Connect to TerminusCMS</span></a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-barlow font-normal" aria-controls="Start_with_TerminusDB" data-collapse-toggle="Start_with_TerminusDB"><span class="flex-1 whitespace-nowrap text-left">Start with TerminusDB</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Start_with_TerminusDB" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../get-started-with-terminusdb/index.html"><span>Get Started with TerminusDB</span></a></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Install_Options" data-collapse-toggle="Install_Options"><a class="tdb__menu__links" href="../terminusdb-install-options/index.html"><span class="flex-1 whitespace-nowrap text-left">Install Options</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Install_Options" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../install-on-kubernetes/index.html">Install on Kubernetes</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../install-terminusdb-as-a-docker-container/index.html">Install as a Docker Container</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../install-terminusdb-from-source-code/index.html">Install from Source Code</a></li></ul></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../terminusdb-cli-commands/index.html"><span>CLI Commands</span></a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-barlow font-normal" aria-controls="How-To_Guides" data-collapse-toggle="How-To_Guides"><span class="flex-1 whitespace-nowrap text-left">How-To Guides</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="How-To_Guides" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../clone-a-demo-terminuscms-project/index.html"><span>Clone a Demo Project</span></a></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Use_the_Clients" data-collapse-toggle="Use_the_Clients"><a class="tdb__menu__links" href="../use-the-clients/index.html"><span class="flex-1 whitespace-nowrap text-left">Use the Clients</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Use_the_Clients" class="hidden tdb__li space-y-2 py-2"><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="Use_the_JS_Client" data-collapse-toggle="Use_the_JS_Client"><a class="tdb__menu__links" href="../use-the-javascript-client/index.html"><span class="flex-1 whitespace-nowrap text-left">Use the JS Client</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Use_the_JS_Client" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../install-terminusdb-js-client/index.html">Install JS Client</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../connect-with-the-javascript-client/index.html">Connect to JS Client</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../create-a-database/index.html">Create DB with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../connect-to-a-database/index.html">Connect to DB with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../add-a-schema/index.html">Add a Schema with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../add-a-document/index.html">Add Doc with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../edit-a-document/index.html">Edit Docs with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../delete-a-document/index.html">Delete Docs with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../get-documents/index.html">Get Docs with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../query-documents/index.html">Query Docs with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../run-woql-query/index.html">Run WOQL Query</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="Use_the_Python_Client" data-collapse-toggle="Use_the_Python_Client"><a class="tdb__menu__links" href="../use-the-python-client/index.html"><span class="flex-1 whitespace-nowrap text-left">Use the Python Client</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Use_the_Python_Client" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../install-the-python-client/index.html">Install Python Client</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../connect-with-python-client/index.html">Connect with Python Client</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../create-database-with-python-client/index.html">Create DB with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../connect-to-a-database-with-python-client/index.html">Connect to DB with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../add-documents-with-python-client/index.html">Add Docs with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../add-a-schema-with-the-python-client/index.html">Add Schema with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../edit-documents-with-python-client/index.html">Edit Docs with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../get-documents-with-python-client/index.html">Get Docs with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../delete-documents-with-python-client/index.html">Delete Docs with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../import-data-with-python-client/index.html">Import Data with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../woql-query-with-python-client/index.html">WOQL Query with Python</a></li></ul></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Collaboration_Features" data-collapse-toggle="Collaboration_Features"><a class="tdb__menu__links" href="../use-the-collaboration-features/index.html"><span class="flex-1 whitespace-nowrap text-left">Collaboration Features</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Collaboration_Features" class="hidden tdb__li space-y-2 py-2"><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="Collaboration_with_JS" data-collapse-toggle="Collaboration_with_JS"><a class="tdb__menu__links" href="../collaboration-with-javascript-client/index.html"><span class="flex-1 whitespace-nowrap text-left">Collaboration with JS</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Collaboration_with_JS" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../clone-a-project/index.html">Clone with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../branch-a-project/index.html">Branch with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../reset-a-project/index.html">Reset with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../squash-projects/index.html">Squash with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../time-travel-to-previous-commits/index.html">Time Travel with JS</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../diff-and-patch-operations/index.html">Diff &amp; Patch with JS</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="Collaboration_with_Python" data-collapse-toggle="Collaboration_with_Python"><a class="tdb__menu__links" href="../collaboration-with-python-client/index.html"><span class="flex-1 whitespace-nowrap text-left">Collaboration with Python</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Collaboration_with_Python" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../branch-a-project-with-the-python-client/index.html">Branch with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../clone-a-database-with-python/index.html">Clone with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../reset-to-a-commit-with-python/index.html">Reset with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../squash-a-project-with-python/index.html">Squash with Python</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../time-travel-with-python/index.html">Time Travel with Python</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="Collaboration_Dashboard" data-collapse-toggle="Collaboration_Dashboard"><a class="tdb__menu__links" href="../collaboration-with-terminuscms-dashboard/index.html"><span class="flex-1 whitespace-nowrap text-left">Collaboration Dashboard</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Collaboration_Dashboard" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../branch/index.html">Branch with Dashboard</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../clone/index.html">Clone with Dashboard</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../reset/index.html">Reset with Dashboard</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../squash/index.html">Squash with Dashboard</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../time-travel/index.html">Time Travel with Dashboard</a></li></ul></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Use_VectorLink" data-collapse-toggle="Use_VectorLink"><a class="tdb__menu__links" href="../use-vectorlink/index.html"><span class="flex-1 whitespace-nowrap text-left">Use VectorLink</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Use_VectorLink" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../set-up-vectorlink/index.html">Add OpenAI Key</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../openai-handlebars-config/index.html">Configure Vector Embeddings</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../index-your-data/index.html">Index Your Data</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Build_Schema" data-collapse-toggle="Build_Schema"><a class="tdb__menu__links" href="../model-schema/index.html"><span class="flex-1 whitespace-nowrap text-left">Build Schema</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Build_Schema" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../use-the-model-builder-ui/index.html">Model Schema UI</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../use-the-json-editor/index.html">JSON Editor</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Manage_Projects" data-collapse-toggle="Manage_Projects"><a class="tdb__menu__links" href="../manage-projects-with-terminuscms/index.html"><span class="flex-1 whitespace-nowrap text-left">Manage Projects</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Manage_Projects" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../create-a-team-with-terminuscms/index.html">Create Teams with UI</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../create-a-project-with-terminuscms/index.html">Create Projects with UI</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../invite-users-using-terminuscms/index.html">Invite Users with UI</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../get-your-api-key-from-terminuscms/index.html">Get API Key</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Query" data-collapse-toggle="Query"><a class="tdb__menu__links" href="../how-to-query/index.html"><span class="flex-1 whitespace-nowrap text-left">Query</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Query" class="hidden tdb__li space-y-2 py-2"><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="GraphQL_Query" data-collapse-toggle="GraphQL_Query"><a class="tdb__menu__links" href="../how-to-query-with-graphql/index.html"><span class="flex-1 whitespace-nowrap text-left">GraphQL Query</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="GraphQL_Query" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../graphql-basics/index.html">GraphQL Basics</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../filter-with-graphql/index.html">GraphQL Filter</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../advanced-filtering-with-graphql/index.html">GraphQL Advanced Filter</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../limit-results-in-graphql/index.html">GraphQL Limit</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../order-by-in-graphql/index.html">GraphQL Order By</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../offset-to-provide-paging/index.html">GraphQL Offset</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../path-queries-in-graphql/index.html">GraphQL Path Queries</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../back-links-in-graphql/index.html">GraphQL Back Links</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="WOQL_Query" data-collapse-toggle="WOQL_Query"><a class="tdb__menu__links" href="../how-to-query-with-woql/index.html"><span class="flex-1 whitespace-nowrap text-left">WOQL Query</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="WOQL_Query" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../woql-basics/index.html">WOQL Basics</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../add-documents-with-woql/index.html">WOQL Add Docs</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../edit-documents-with-woql/index.html">WOQL Edit Docs</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../delete-documents-with-woql/index.html">WOQL Delete Docs</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../read-documents-with-woql/index.html">WOQL Read Docs</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../filter-with-woql/index.html">WOQL Filter</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../order-by-with-woql/index.html">WOQL Order By</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../query-arrays-and-sets-in-woql/index.html">WOQL Query Arrays</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../group-query-results/index.html">WOQL Group Results</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../path-queries-in-woql/index.html">WOQL Path Queries</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../maths-based-queries-in-woql/index.html">WOQL Math Queries</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../schema-queries-with-woql/index.html">WOQL Schema Queries</a></li></ul></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Curate_&amp;_Import_Data" data-collapse-toggle="Curate_&amp;_Import_Data"><a class="tdb__menu__links" href="../curate-and-import-data/index.html"><span class="flex-1 whitespace-nowrap text-left">Curate &amp; Import Data</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Curate_&amp;_Import_Data" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../use-the-admin-ui-curate-and-import-data/index.html">Curate with Dashboard</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../import-data-with-python-client/index.html">Import with Python</a></li></ul></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-barlow font-normal" aria-controls="Reference_Guides" data-collapse-toggle="Reference_Guides"><span class="flex-1 whitespace-nowrap text-left">Reference Guides</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Reference_Guides" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../schema-reference-guide/index.html"><span>Schema Reference</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../javascript/index.html"><span>JS Client Reference</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../python/index.html"><span>Python Client Reference</span></a></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="GraphQL_Reference" data-collapse-toggle="GraphQL_Reference"><a class="tdb__menu__links" href="../graphql-query-reference/index.html"><span class="flex-1 whitespace-nowrap text-left">GraphQL Reference</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="GraphQL_Reference" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../connecting-to-graphql-reference/index.html">Connecting to GraphQL</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../graphql-naming-conventions-reference/index.html">GraphQL Naming Conventions</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../system-graph-graphql-interface-reference/index.html">System Graph Interface</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../connect-with-apollo-client/index.html">Connect with Apollo Client</a></li></ul></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../openapi/index.html"><span>HTTP reference</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../js-access-control/index.html"><span>Access Control</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../terminuscms-data-types/index.html"><span>Supported Data Types</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../document-insertion/index.html"><span>Document Insertion</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../terminuscms-dashboard-reference/index.html"><span>TerminusCMS Dashboard</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../json-diff-and-patch/index.html"><span>JSON Diff and Patch</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../path-query-reference-guide/index.html"><span>Path Queries</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../schema-migration-reference-guide/index.html"><span>Schema Migration</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../woql-class-reference-guide/index.html"><span>WOQL Class Reference</span></a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-barlow font-normal" aria-controls="UI_SDK" data-collapse-toggle="UI_SDK"><span class="flex-1 whitespace-nowrap text-left">UI SDK</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="UI_SDK" class="hidden tdb__li space-y-2 py-2"><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Use_the_Document_UI_SDK" data-collapse-toggle="Use_the_Document_UI_SDK"><a class="tdb__menu__links" href="../document-ui-sdk/index.html"><span class="flex-1 whitespace-nowrap text-left">Use the Document UI SDK</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Use_the_Document_UI_SDK" class="hidden tdb__li space-y-2 py-2"><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="UI_SDK_Data_Types" data-collapse-toggle="UI_SDK_Data_Types"><a class="tdb__menu__links" href="../document-ui-sdk-data-types/index.html"><span class="flex-1 whitespace-nowrap text-left">UI SDK Data Types</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="UI_SDK_Data_Types" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../array/index.html">Array</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../choice-document/index.html">Choice Document</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../choice-subdocuments/index.html">Choice Sub-Document</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../list/index.html">List</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../mandatory/index.html">Mandatory</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../oneof/index.html">One Of</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../optional/index.html">Optional</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../orderby/index.html">Order By</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../render-as/index.html">Render As</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../set/index.html">Set</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../sysjson/index.html">sysJSON</a></li></ul></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../ui-sdk-geojson/index.html">UI SDK GeoJSON</a></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6 font-barlow font-normal " aria-controls="Document_UI_Template" data-collapse-toggle="Document_UI_Template"><a class="tdb__menu__links" href="../document-ui-template/index.html"><span class="flex-1 whitespace-nowrap text-left">Document UI Template</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Document_UI_Template" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../tdb-react-table/index.html">TDB React Table</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../usetdbdocuments/index.html">Use TDB Documents</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11  font-barlow font-normal" href="../usetdbgraphqlquery/index.html">Use TDB GraphQL Query</a></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-11 font-barlow font-normal " aria-controls="UI_Components" data-collapse-toggle="UI_Components"><a class="tdb__menu__links" href="../ui-components/index.html"><span class="flex-1 whitespace-nowrap text-left">UI Components</span></a><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="UI_Components" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../documentclassessummary/index.html">Document Classes Summary</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../documentsgraphqltable/index.html">Documents GraphQL Table</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../edit-document-component/index.html">Edit Documents</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../list-documents-component/index.html">List Documents</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../newdocumentcomponent/index.html">New Documents</a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-16  font-barlow font-normal" href="../viewdocumentcomponent/index.html">View Documents</a></li></ul></li></ul></li></ul></li><li><button type="button" class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 font-barlow font-normal" aria-controls="Explanations" data-collapse-toggle="Explanations"><span class="flex-1 whitespace-nowrap text-left">Explanations</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button><ul id="Explanations" class="hidden tdb__li space-y-2 py-2"><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../acid-transactions-explanation/index.html"><span>Acid Transactions</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../datalog-explanation/index.html"><span>Datalog</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../documents-explanation/index.html"><span>Documents</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../glossary/index.html"><span>Glossary</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../graphs-explanation/index.html"><span>Graphs</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../immutability-explanation/index.html"><span>Immutability</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../terminusdb-explanation/index.html"><span>TerminusDB</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../what-is-schema-weakening/index.html"><span>Schema Weakening</span></a></li><li><a class="text-base flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 pl-6  font-barlow font-normal" href="../woql-explanation/index.html"><span>WOQL</span></a></li></ul></li></ul></nav></div></aside><div class="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/60" id="sidebarBackdrop"></div><main id="content-wrapper" class="w-full min-w-0 flex-auto lg:static lg:max-h-full lg:overflow-visible"><div class="flex w-full"><div class="pb:12 min-w-0 max-w-4xl flex-auto pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24"><div id="mainContent"><div class="mb-4 border-b border-gray-200 pb-2 dark:border-gray-800"><h1 class="font-barlow font-semibold">Access Control with the JavaScript Client Reference Guide</h1></div><h2 class="tdb__subtitle font-barlow font-semibold"><div></div></h2><div><p><strong>License</strong>: Apache Version 2  </p>
+<h2 id="newaccesscontrol">new AccessControl()</h2>
+<p>The AccessControl is a driver to work with
+TerminusDB and TerminusX access control api
+for the credential you can use the JWT token, the API token or
+the basic authentication with username and password</p>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">//connect with the API token
+//(to request a token create an account in  https://terminusdb.com/)
+const accessContol = new AccessControl("https://servername.com",
+{organization:"my_team_name",
+token:"dGVybWludXNkYjovLy9kYXRhL2tleXNfYXB........"})
+accessControl.getOrgUsers().then(result=&gt;{
+     console.log(result)
+})
+//connect with the jwt token this type of connection is only for the dashboard
+//or for application integrate with our login workflow
+const accessContol = new AccessControl("https://servername.com",
+{organization:"my_team_name",
+jwt:"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpXUjBIOXYyeTFORUd........"})
+accessControl.getOrgUsers().then(result=&gt;{
+     console.log(result)
+})
+//if the jwt is expired you can change it with
+accessControl.setJwtToken("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpXUjBIOXYy
+eTFORUd.......")
+//connect with the base authentication this type of connection is only for the local installation
+const accessContol = new AccessControl("http://localhost:6363",
+{organization:"my_team_name", user:"admin"
+key:"mykey"})
+accessControl.getOrgUsers().then(result=&gt;{
+    console.log(result)
+})
+</code></pre>
+<h2 id="getdefaultorganization">getDefaultOrganization</h2>
+<h5 id="accesscontrolgetdefaultorganizationparamsc0cc1c">accessControl.getDefaultOrganization(params) ⇒ <code>string</code> | <code>undefined</code></h5>
+<p>Get a organization from parameters.</p>
+<p><strong>Returns</strong>: <code>string</code> | <code>undefined</code> - - organization  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>params</td>
+<td><code>object</code></td>
+<td>The parameters</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setjwttoken">setJwtToken</h2>
+<h5 id="accesscontrolsetjwttokenjwt">accessControl.setJwtToken(jwt)</h5>
+<p>Sets the Jwt token for the object</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jwt</td>
+<td><code>string</code></td>
+<td>The jwt api token to use</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setapitoken">setApiToken</h2>
+<h5 id="accesscontrolsetapitokenatokenpi">accessControl.setApiToken(atokenpi)</h5>
+<p>Sets the API token for the object, to request a token create an account in  https://terminusdb.com/</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>atokenpi</td>
+<td><code>string</code></td>
+<td>The API token to use to connect with TerminusX</td>
+</tr>
+</tbody>
+</table>
+<h2 id="setapikey">setApiKey</h2>
+<h5 id="accesscontrolsetapikeyatokenpi">accessControl.setApiKey(atokenpi)</h5>
+<p>Sets the API token for the object, to request a token create an account in  https://terminusdb.com/</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>atokenpi</td>
+<td><code>string</code></td>
+<td>The API token to use to connect with TerminusX</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getapiurl">getAPIUrl</h2>
+<h5 id="accesscontrolgetapiurlcloudapiurlc8c">accessControl.getAPIUrl(cloudAPIUrl) ⇒ <code>string</code></h5>
+<p>Get a API url from cloudAPIUrl</p>
+<p><strong>Returns</strong>: <code>string</code> - apiUrl  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cloudAPIUrl</td>
+<td><code>string</code></td>
+<td>The base url for cloud</td>
+</tr>
+</tbody>
+</table>
+<h2 id="customheaders">customHeaders</h2>
+<h5 id="accesscontrolcustomheaderscustomheadersc11c">accessControl.customHeaders(customHeaders) ⇒ <code>object</code></h5>
+<p>add extra headers to your request</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>customHeaders</td>
+<td><code>object</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="getorganization">getOrganization</h2>
+<h5 id="accesscontrolgetorganizationorganizationc13c">accessControl.getOrganization(organization) ⇒ <code>object</code></h5>
+<p>-- TerminusDB API ---
+Get an organization from the TerminusDB API.</p>
+<p><strong>Returns</strong>: <code>object</code> - - organization  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>organization</td>
+<td><code>string</code></td>
+<td>The organization</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getallorganizations">getAllOrganizations</h2>
+<h5 id="accesscontrolgetallorganizationsc16c">accessControl.getAllOrganizations() ⇒ <code>Promise</code></h5>
+<p>-- TerminusDB API ---
+This end point works in basic authentication, admin user
+Get list of organizations</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<h2 id="createorganization">createOrganization</h2>
+<h5 id="accesscontrolcreateorganizationorgnamec18c">accessControl.createOrganization(orgName) ⇒ <code>Promise</code></h5>
+<p>-- TerminusDB API ---
+This end point works in basic authentication, admin user
+Create an organization</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orgName</td>
+<td><code>string</code></td>
+<td>The organization name to create</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.createOrganization("my_org_name").then(result=&gt;{
+     console.log(result)
+})
+</code></pre>
+<h2 id="deleteorganization">deleteOrganization</h2>
+<h5 id="accesscontroldeleteorganizationorgnamec21c">accessControl.deleteOrganization(orgName) ⇒ <code>Promise</code></h5>
+<p>-- TerminusDB API ---
+Delete an Organization</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orgName</td>
+<td><code>string</code></td>
+<td>The organization name to delete</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.createOrganization("my_org_name").then(result=&gt;{
+     console.log(result)
+})
+</code></pre>
+<h2 id="createrole">createRole</h2>
+<h5 id="accesscontrolcreaterolenameactionsc24c">accessControl.createRole([name], [actions]) ⇒ <code>Promise</code></h5>
+<p>--TerminusDB API ---
+basic authentication, admin user.
+Create a new role in the system database.</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[name]</td>
+<td><code>string</code></td>
+<td>The role name.</td>
+</tr>
+<tr>
+<td>[actions]</td>
+<td><code>typedef.RolesActions</code></td>
+<td>A list of actions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.createRole("Reader",[ACTIONS.INSTANCE_READ_ACCESS]).then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="deleterole">deleteRole</h2>
+<h5 id="accesscontroldeleterolenamec28c">accessControl.deleteRole([name]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusdDB API ---
+basic Authentication, admin user.
+Delete role in the system database, (this api is enabled only in the local installation)</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[name]</td>
+<td><code>string</code></td>
+<td>The role name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.deleteRole("Reader").then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="getallusers">getAllUsers</h2>
+<h5 id="accesscontrolgetallusersc31c">accessControl.getAllUsers() ⇒ <code>Promise</code></h5>
+<p>-- TerminusdDB API ---
+basic Authentication, admin user.
+Return the list of all the users (this api is enabled only in the local installation)</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.<br />
+<strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.getAllUsers().then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="createuser">createUser</h2>
+<h5 id="accesscontrolcreateusernamepasswordc33c">accessControl.createUser(name, [password]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusdDB API ---
+basic Authentication, admin user.
+Add the user into the system database</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>the user name</td>
+</tr>
+<tr>
+<td>[password]</td>
+<td><code>string</code></td>
+<td>you need the password for basic authentication</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.deleteUser(userId).then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="deleteuser">deleteUser</h2>
+<h5 id="accesscontroldeleteuseruseridc37c">accessControl.deleteUser(userId) ⇒ <code>Promise</code></h5>
+<p>-- TerminusdDB API ---
+basic Authentication, admin user.
+Remove the user from the system database.</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userId</td>
+<td><code>string</code></td>
+<td>the document user id</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.deleteUser(userId).then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="managecapability">manageCapability</h2>
+<h5 id="accesscontrolmanagecapabilityusernameresourcenamerolesarroperationscopetypec40c">accessControl.manageCapability(userName, resourceName, rolesArr, operation, scopeType) ⇒ <code>Promise</code></h5>
+<p>-- TerminusdDB API ---
+Grant/Revoke Capability</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userName</td>
+<td><code>string</code></td>
+<td>the document user id</td>
+</tr>
+<tr>
+<td>resourceName</td>
+<td><code>string</code></td>
+<td>the name of a (database or team)</td>
+</tr>
+<tr>
+<td>rolesArr</td>
+<td><code>array</code></td>
+<td>the roles name list</td>
+</tr>
+<tr>
+<td>operation</td>
+<td><code>typedef.CapabilityCommand</code></td>
+<td>grant/revoke operation</td>
+</tr>
+<tr>
+<td>scopeType</td>
+<td><code>typedef.ScopeType</code></td>
+<td>the resource type (database or organization)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">//we add an user to an organization and manage users' access
+//the user myUser can  access the Organization and all the database under the organization with "reader" Role
+client.manageCapability(myUser,myteam,[reader],"grant","organization").then(result=&gt;{
+ consol.log(result)
+})
+//the user myUser can  access the database db__001 under the organization myteam
+//with "writer" Role
+client.manageCapability(myUser,myteam/db__001,[writer],"grant","database").then(result=&gt;{
+ consol.log(result)
+})
+</code></pre>
+<h2 id="getaccessroles">getAccessRoles</h2>
+<h5 id="accesscontrolgetaccessrolesc47c">accessControl.getAccessRoles() ⇒ <code>Promise</code></h5>
+<p>--TerminusX and TerminusDB API ---
+Get all the system database roles types.</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<h2 id="getorgusers">getOrgUsers</h2>
+<h5 id="accesscontrolgetorgusersorgnamec49c">accessControl.getOrgUsers([orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX and TerminusDB API --
+Get all the organization's users and roles,</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.getOrgUsers().then(result=&gt;{
+ console.log(result)
+})
+//this function will return an array of capabilities with users and roles
+//-- TerminusX --  response array example
+//[{capability: "Capability/3ea26e1d698821c570afe9cb4fe81a3......"
+//     email: {@type: "xsd:string", @value: "user@terminusdb.com"}
+//     picture: {@type: "xsd:string",…}
+//     role: "Role/dataReader"
+//     scope: "Organization/my_org_name"
+//     user: "User/auth0%7C613f5dnndjdjkTTT"}]
+//
+//
+// -- Local Installation -- response array example
+//[{ "@id":"User/auth0%7C615462f8ab33f4006a6bee0c",
+//  "capability": [{
+//   "@id":"Capability/c52af34b71f6f8916ac0115ecb5fe0e31248ead8b1e3d100852015...",
+//   "@type":"Capability",
+//  "role": [{
+//    "@id":"Role/admin",
+//    "@type":"Role",
+//    "action": ["instance_read_access"],
+//     "name":"Admin Role"
+//     }],
+//  "scope":"Organization/@team"}]]
+</code></pre>
+<h2 id="getteamuserroles">getTeamUserRoles</h2>
+<h5 id="accesscontrolgetteamuserrolesusernameorgnamec52c">accessControl.getTeamUserRoles([userName], [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX and TerminusDB API --
+Get the user roles for a given organization or the default organization,</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[userName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.getTeamUserRole("myUser").then(result=&gt;{
+ console.log(result)
+})
+//response object example
+{
+ "@id": "User/myUser",
+  "capability": [
+        {
+          "@id":"Capability/server_access",
+          "@type":"Capability",
+          "role": [{
+             "@id":"Role/reader",
+              "@type":"Role",
+             "action": [
+                "instance_read_access",
+             ],
+              "name":"reader"
+            }],
+          "scope":"Organization/myteam"
+        }
+      ],
+  "name": "myUser"
+}
+</code></pre>
+<h2 id="iforganizationexists">ifOrganizationExists</h2>
+<h5 id="accesscontroliforganizationexistsorgnamec56c">accessControl.ifOrganizationExists(orgName) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Check if the organization exists. it is a Head call .
+IMPORTANT This does not work with the API-TOKEN.</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call status object,  200: if the organization
+exists and 404: if the organization does not exist  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orgName</td>
+<td><code>string</code></td>
+<td>The organization name to check if exists.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="createorganizationremote">createOrganizationRemote</h2>
+<h5 id="accesscontrolcreateorganizationremoteorgnamec59c">accessControl.createOrganizationRemote(orgName) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+IMPORTANT This does not work with the API-TOKEN.
+Create an organization</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orgName</td>
+<td><code>string</code></td>
+<td>The organization name to create</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">accessControl.createOrganization("my_org_name").then(result=&gt;{
+     console.log(result)
+})
+</code></pre>
+<h2 id="getpendingorginvites">getPendingOrgInvites</h2>
+<h5 id="accesscontrolgetpendingorginvitesorgnamec62c">accessControl.getPendingOrgInvites([orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Get the pending invitations list.</p>
+<p><strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>  </p>
+<pre><code class="javascript language-javascript">const invitationList = accessControl.getPendingOrgInvites().then(result=&gt;{
+   console.log(invitationList)
+})
+//this will return an array of invitations object like this
+//[{@id: "Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9c0dfc2ac51161ef5ba
+cb0988d992c4bce82b3fa5d25"
+//      @type: "Invitation"
+//      creation_date: "2021-10-22T11:13:28.762Z"
+//      email_to: "new_user@terminusdb.com"
+//      invited_by: "User/auth0%7C6162f8ab33567406a6bee0c"
+//      role: "Role/dataReader"
+//      status: "needs_invite"}]
+</code></pre>
+<h2 id="sendorginvite">sendOrgInvite</h2>
+<h5 id="accesscontrolsendorginviteuseremailrolenoteorgnamec65c">accessControl.sendOrgInvite(userEmail, role, [note], [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Send a new invitation
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userEmail</td>
+<td><code>string</code></td>
+<td>The email of user.</td>
+</tr>
+<tr>
+<td>role</td>
+<td><code>string</code></td>
+<td>The role for user. (the document @id role like Role/collaborator)</td>
+</tr>
+<tr>
+<td>[note]</td>
+<td><code>string</code></td>
+<td>The note to send with the invitation.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.sendOrgInvite("new_user@terminusdb.com","Role/admin",
+"please join myteam").then(result=&gt;{
+   console.log(result)
+})
+</code></pre>
+<h2 id="getorginvite">getOrgInvite</h2>
+<h5 id="accesscontrolgetorginviteinviteidorgnamec71c">accessControl.getOrgInvite(inviteId, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Get the invitation info
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inviteId</td>
+<td><code>string</code></td>
+<td>The invite id to retrieve.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">const fullInviteId="Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9c0dfc
+2ac51161ef5ba7cb0988d992c4bce82b3fa5d25"
+accessControl.getOrgInvite(fullInviteId).then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="deleteorginvite">deleteOrgInvite</h2>
+<h5 id="accesscontroldeleteorginviteinviteidorgnamec75c">accessControl.deleteOrgInvite(inviteId, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Delete an invitation
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inviteId</td>
+<td><code>string</code></td>
+<td>The invite id to delete.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">const fullInviteId="Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9
+c0dfc2ac51161ef5ba7cb0988d992c4bce82b3fa5d25"
+accessControl.deleteOrgInvite(fullInviteId).then(result=&gt;{
+     console.log(result)
+})
+</code></pre>
+<h2 id="updateorginvitestatus">updateOrgInviteStatus</h2>
+<h5 id="accesscontrolupdateorginvitestatusinviteidacceptedorgnamec79c">accessControl.updateOrgInviteStatus(inviteId, accepted, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Accept /Reject invitation. if the invitation has been accepted we add the current user
+to the organization.
+the only user that can accept this invitation is the user registered with the invitation email,
+we indentify the user with the jwt token
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inviteId</td>
+<td><code>string</code></td>
+<td>The invite id to updated.</td>
+</tr>
+<tr>
+<td>accepted</td>
+<td><code>boolean</code></td>
+<td>The status of the invitation.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">const fullInviteId="Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9
+c0dfc2ac51161ef5ba7cb0988d992c4bce82b3fa5d25"
+accessControl.updateOrgInviteStatus(fullInviteId,true).then(result=&gt;{
+  console.log(result)
+})
+</code></pre>
+<h2 id="getteamuserrole">getTeamUserRole</h2>
+<h5 id="accesscontrolgetteamuserroleorgnamec84c">accessControl.getTeamUserRole([orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API ---
+Get the user role for a given organization or the default organization
+The user is identified by the jwt or the access token
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.getTeamUserRole().then(result=&gt;{
+ console.log(result)
+})
+//response object example
+{"userRole":"Role/admin"}
+</code></pre>
+<h2 id="removeuserfromorg">removeUserFromOrg</h2>
+<h5 id="accesscontrolremoveuserfromorguseridorgnamec87c">accessControl.removeUserFromOrg(userId, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Remove an user from an organization, only an admin user can remove an user from an organization
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userId</td>
+<td><code>string</code></td>
+<td>The id of the user to be removed. (this is the document user's @id)</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name in which the user is to be removed.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.removeUserFromOrg("User/auth0%7C613f5dnndjdjkTTT","my_org_name").then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="getdatabaserolesofuser">getDatabaseRolesOfUser</h2>
+<h5 id="accesscontrolgetdatabaserolesofuseruseridorgnamec91c">accessControl.getDatabaseRolesOfUser(userId, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Get the user's role for every databases under the organization
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userId</td>
+<td><code>string</code></td>
+<td>The user's id.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.getDatabaseRolesOfUser('User/auth0%7C61790e366377Yu6596a').then(result=&gt;{
+     console.log(result)
+})
+//this is a capabilities list of databases and roles
+//[ {capability: "Capability/b395e8523d509dec6b33aefc9baed3b2e2bfadbd4c79d4ff9b20dce2b14e2edc"
+//if there is an id we have a user specific capabality for this database
+   // name: {@type: "xsd:string", @value: "profiles_test"}
+   // role: "Role/dataUpdater"
+   // scope: "UserDatabase/7ebdfae5a02bc7e8f6d79sjjjsa4e179b1df9d4576a3b1d2e5ff3b4859"
+   // user: "User/auth0%7C61790e11a3966d006906596a"},
+//{ capability: null
+// if the capability id is null the user level of access for this database is the
+same of the team
+  //name: {@type: "xsd:string", @value: "Collab002"}
+  //role: "Role/dataReader"
+  // scope: "UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f"
+  //user: "User/auth0%7C61790e11a3966d006906596a"}]
+</code></pre>
+<h2 id="createuserrole">createUserRole</h2>
+<h5 id="accesscontrolcreateuserroleuseridscoperoleorgnamec95c">accessControl.createUserRole(userId, scope, role, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Create a user's a role for a resource (organization/database)
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userId</td>
+<td><code>string</code></td>
+<td>The user's id.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td><code>string</code></td>
+<td>The resource name/id.</td>
+</tr>
+<tr>
+<td>role</td>
+<td><code>string</code></td>
+<td>The user role to be assigned.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">const dbId = "UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f"
+accessControl.assignUserRole('User/auth0%7C61790e11a3966d006906596a',dbId,
+"Role/collaborator").then(result=&gt;{
+     console.log(result)
+})
+</code></pre>
+<h2 id="updateuserrole">updateUserRole</h2>
+<h5 id="accesscontrolupdateuserroleuseridcapabilityidscoperoleorgnamec101c">accessControl.updateUserRole(userId, capabilityId, scope, role, [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Update user's a role for a resource (organization/database), (this api works only in terminusX)
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userId</td>
+<td><code>string</code></td>
+<td>The user's id.</td>
+</tr>
+<tr>
+<td>capabilityId</td>
+<td><code>string</code></td>
+<td>The capability id.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td><code>string</code></td>
+<td>The resource name/id.</td>
+</tr>
+<tr>
+<td>role</td>
+<td><code>string</code></td>
+<td>The user role to be updated.</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">const dbId = "UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f"
+const capId= "Capability/b395e8523d509dec6b33aefc9baed3b2e2bfadbd4c79d4ff9b20dce2b14e2edc"
+accessControl.updateUserRole('User/auth0%7C61790e11a3966d006906596a',capId,dbId,
+"Role/dataUpdater").then(result=&gt;{
+     console.log(result)
+})
+</code></pre>
+<h2 id="accessrequestslist">accessRequestsList</h2>
+<h5 id="accesscontrolaccessrequestslistorgnamec108c">accessControl.accessRequestsList([orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Get all the access request list for a specify organization
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.accessRequestsList().then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="sendaccessrequest">sendAccessRequest</h2>
+<h5 id="accesscontrolsendaccessrequestemailaffiliationnoteorgnamec111c">accessControl.sendAccessRequest([email], [affiliation], [note], [orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Get all the access request list for a specify organization
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[email]</td>
+<td><code>string</code></td>
+<td>the user email.</td>
+</tr>
+<tr>
+<td>[affiliation]</td>
+<td><code>string</code></td>
+<td>the user affiliation, company, university etc..</td>
+</tr>
+<tr>
+<td>[note]</td>
+<td><code>string</code></td>
+<td>the message for the team admin</td>
+</tr>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.sendAccessRequest("myemail@terminusdb.com",
+ "my_company",
+ "please add me to your team"
+).then(result=&gt;{
+ console.log(result)
+})
+</code></pre>
+<h2 id="deleteaccessrequest">deleteAccessRequest</h2>
+<h5 id="accesscontroldeleteaccessrequestorgnamec117c">accessControl.deleteAccessRequest([orgName]) ⇒ <code>Promise</code></h5>
+<p>-- TerminusX API --
+Delete an access request to join your team, only an admin user can delete it
+<strong>Returns</strong>: <code>Promise</code> - A promise that returns the call response object, or an Error if rejected.  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[orgName]</td>
+<td><code>string</code></td>
+<td>The organization name.</td>
+</tr>
+<tr>
+<td><strong>Example</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="javascript language-javascript">accessControl.deleteAccessRequest("djjdshhsuuwewueueuiHYHYYW.......").then(result=&gt;{
+ console.log(result)
+})
+</code></pre></div></div></div></div></main></div></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"entry":{"html":"\u003cp\u003e\u003cstrong\u003eLicense\u003c/strong\u003e: Apache Version 2  \u003c/p\u003e\n\u003ch2 id=\"newaccesscontrol\"\u003enew AccessControl()\u003c/h2\u003e\n\u003cp\u003eThe AccessControl is a driver to work with\nTerminusDB and TerminusX access control api\nfor the credential you can use the JWT token, the API token or\nthe basic authentication with username and password\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003e//connect with the API token\n//(to request a token create an account in  https://terminusdb.com/)\nconst accessContol = new AccessControl(\"https://servername.com\",\n{organization:\"my_team_name\",\ntoken:\"dGVybWludXNkYjovLy9kYXRhL2tleXNfYXB........\"})\naccessControl.getOrgUsers().then(result=\u0026gt;{\n     console.log(result)\n})\n//connect with the jwt token this type of connection is only for the dashboard\n//or for application integrate with our login workflow\nconst accessContol = new AccessControl(\"https://servername.com\",\n{organization:\"my_team_name\",\njwt:\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpXUjBIOXYyeTFORUd........\"})\naccessControl.getOrgUsers().then(result=\u0026gt;{\n     console.log(result)\n})\n//if the jwt is expired you can change it with\naccessControl.setJwtToken(\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpXUjBIOXYy\neTFORUd.......\")\n//connect with the base authentication this type of connection is only for the local installation\nconst accessContol = new AccessControl(\"http://localhost:6363\",\n{organization:\"my_team_name\", user:\"admin\"\nkey:\"mykey\"})\naccessControl.getOrgUsers().then(result=\u0026gt;{\n    console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getdefaultorganization\"\u003egetDefaultOrganization\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetdefaultorganizationparamsc0cc1c\"\u003eaccessControl.getDefaultOrganization(params) ⇒ \u003ccode\u003estring\u003c/code\u003e | \u003ccode\u003eundefined\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003eGet a organization from parameters.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003estring\u003c/code\u003e | \u003ccode\u003eundefined\u003c/code\u003e - - organization  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eparams\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eobject\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe parameters\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"setjwttoken\"\u003esetJwtToken\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolsetjwttokenjwt\"\u003eaccessControl.setJwtToken(jwt)\u003c/h5\u003e\n\u003cp\u003eSets the Jwt token for the object\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003ejwt\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe jwt api token to use\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"setapitoken\"\u003esetApiToken\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolsetapitokenatokenpi\"\u003eaccessControl.setApiToken(atokenpi)\u003c/h5\u003e\n\u003cp\u003eSets the API token for the object, to request a token create an account in  https://terminusdb.com/\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eatokenpi\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe API token to use to connect with TerminusX\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"setapikey\"\u003esetApiKey\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolsetapikeyatokenpi\"\u003eaccessControl.setApiKey(atokenpi)\u003c/h5\u003e\n\u003cp\u003eSets the API token for the object, to request a token create an account in  https://terminusdb.com/\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eatokenpi\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe API token to use to connect with TerminusX\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"getapiurl\"\u003egetAPIUrl\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetapiurlcloudapiurlc8c\"\u003eaccessControl.getAPIUrl(cloudAPIUrl) ⇒ \u003ccode\u003estring\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003eGet a API url from cloudAPIUrl\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003estring\u003c/code\u003e - apiUrl  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003ecloudAPIUrl\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe base url for cloud\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"customheaders\"\u003ecustomHeaders\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolcustomheaderscustomheadersc11c\"\u003eaccessControl.customHeaders(customHeaders) ⇒ \u003ccode\u003eobject\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003eadd extra headers to your request\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003ecustomHeaders\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eobject\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"getorganization\"\u003egetOrganization\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetorganizationorganizationc13c\"\u003eaccessControl.getOrganization(organization) ⇒ \u003ccode\u003eobject\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusDB API ---\nGet an organization from the TerminusDB API.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003eobject\u003c/code\u003e - - organization  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eorganization\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"getallorganizations\"\u003egetAllOrganizations\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetallorganizationsc16c\"\u003eaccessControl.getAllOrganizations() ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusDB API ---\nThis end point works in basic authentication, admin user\nGet list of organizations\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ch2 id=\"createorganization\"\u003ecreateOrganization\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolcreateorganizationorgnamec18c\"\u003eaccessControl.createOrganization(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusDB API ---\nThis end point works in basic authentication, admin user\nCreate an organization\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eorgName\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name to create\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.createOrganization(\"my_org_name\").then(result=\u0026gt;{\n     console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"deleteorganization\"\u003edeleteOrganization\u003c/h2\u003e\n\u003ch5 id=\"accesscontroldeleteorganizationorgnamec21c\"\u003eaccessControl.deleteOrganization(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusDB API ---\nDelete an Organization\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eorgName\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name to delete\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.createOrganization(\"my_org_name\").then(result=\u0026gt;{\n     console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"createrole\"\u003ecreateRole\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolcreaterolenameactionsc24c\"\u003eaccessControl.createRole([name], [actions]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e--TerminusDB API ---\nbasic authentication, admin user.\nCreate a new role in the system database.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[name]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe role name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[actions]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003etypedef.RolesActions\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eA list of actions\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.createRole(\"Reader\",[ACTIONS.INSTANCE_READ_ACCESS]).then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"deleterole\"\u003edeleteRole\u003c/h2\u003e\n\u003ch5 id=\"accesscontroldeleterolenamec28c\"\u003eaccessControl.deleteRole([name]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusdDB API ---\nbasic Authentication, admin user.\nDelete role in the system database, (this api is enabled only in the local installation)\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[name]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe role name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.deleteRole(\"Reader\").then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getallusers\"\u003egetAllUsers\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetallusersc31c\"\u003eaccessControl.getAllUsers() ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusdDB API ---\nbasic Authentication, admin user.\nReturn the list of all the users (this api is enabled only in the local installation)\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.\u003cbr /\u003e\n\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.getAllUsers().then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"createuser\"\u003ecreateUser\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolcreateusernamepasswordc33c\"\u003eaccessControl.createUser(name, [password]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusdDB API ---\nbasic Authentication, admin user.\nAdd the user into the system database\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003ename\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe user name\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[password]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eyou need the password for basic authentication\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.deleteUser(userId).then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"deleteuser\"\u003edeleteUser\u003c/h2\u003e\n\u003ch5 id=\"accesscontroldeleteuseruseridc37c\"\u003eaccessControl.deleteUser(userId) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusdDB API ---\nbasic Authentication, admin user.\nRemove the user from the system database.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe document user id\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.deleteUser(userId).then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"managecapability\"\u003emanageCapability\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolmanagecapabilityusernameresourcenamerolesarroperationscopetypec40c\"\u003eaccessControl.manageCapability(userName, resourceName, rolesArr, operation, scopeType) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusdDB API ---\nGrant/Revoke Capability\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserName\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe document user id\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eresourceName\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe name of a (database or team)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003erolesArr\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003earray\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe roles name list\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eoperation\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003etypedef.CapabilityCommand\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003egrant/revoke operation\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003escopeType\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003etypedef.ScopeType\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe resource type (database or organization)\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003e//we add an user to an organization and manage users' access\n//the user myUser can  access the Organization and all the database under the organization with \"reader\" Role\nclient.manageCapability(myUser,myteam,[reader],\"grant\",\"organization\").then(result=\u0026gt;{\n consol.log(result)\n})\n//the user myUser can  access the database db__001 under the organization myteam\n//with \"writer\" Role\nclient.manageCapability(myUser,myteam/db__001,[writer],\"grant\",\"database\").then(result=\u0026gt;{\n consol.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getaccessroles\"\u003egetAccessRoles\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetaccessrolesc47c\"\u003eaccessControl.getAccessRoles() ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e--TerminusX and TerminusDB API ---\nGet all the system database roles types.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ch2 id=\"getorgusers\"\u003egetOrgUsers\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetorgusersorgnamec49c\"\u003eaccessControl.getOrgUsers([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX and TerminusDB API --\nGet all the organization's users and roles,\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.getOrgUsers().then(result=\u0026gt;{\n console.log(result)\n})\n//this function will return an array of capabilities with users and roles\n//-- TerminusX --  response array example\n//[{capability: \"Capability/3ea26e1d698821c570afe9cb4fe81a3......\"\n//     email: {@type: \"xsd:string\", @value: \"user@terminusdb.com\"}\n//     picture: {@type: \"xsd:string\",…}\n//     role: \"Role/dataReader\"\n//     scope: \"Organization/my_org_name\"\n//     user: \"User/auth0%7C613f5dnndjdjkTTT\"}]\n//\n//\n// -- Local Installation -- response array example\n//[{ \"@id\":\"User/auth0%7C615462f8ab33f4006a6bee0c\",\n//  \"capability\": [{\n//   \"@id\":\"Capability/c52af34b71f6f8916ac0115ecb5fe0e31248ead8b1e3d100852015...\",\n//   \"@type\":\"Capability\",\n//  \"role\": [{\n//    \"@id\":\"Role/admin\",\n//    \"@type\":\"Role\",\n//    \"action\": [\"instance_read_access\"],\n//     \"name\":\"Admin Role\"\n//     }],\n//  \"scope\":\"Organization/@team\"}]]\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getteamuserroles\"\u003egetTeamUserRoles\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetteamuserrolesusernameorgnamec52c\"\u003eaccessControl.getTeamUserRoles([userName], [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX and TerminusDB API --\nGet the user roles for a given organization or the default organization,\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[userName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.getTeamUserRole(\"myUser\").then(result=\u0026gt;{\n console.log(result)\n})\n//response object example\n{\n \"@id\": \"User/myUser\",\n  \"capability\": [\n        {\n          \"@id\":\"Capability/server_access\",\n          \"@type\":\"Capability\",\n          \"role\": [{\n             \"@id\":\"Role/reader\",\n              \"@type\":\"Role\",\n             \"action\": [\n                \"instance_read_access\",\n             ],\n              \"name\":\"reader\"\n            }],\n          \"scope\":\"Organization/myteam\"\n        }\n      ],\n  \"name\": \"myUser\"\n}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"iforganizationexists\"\u003eifOrganizationExists\u003c/h2\u003e\n\u003ch5 id=\"accesscontroliforganizationexistsorgnamec56c\"\u003eaccessControl.ifOrganizationExists(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nCheck if the organization exists. it is a Head call .\nIMPORTANT This does not work with the API-TOKEN.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call status object,  200: if the organization\nexists and 404: if the organization does not exist  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eorgName\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name to check if exists.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch2 id=\"createorganizationremote\"\u003ecreateOrganizationRemote\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolcreateorganizationremoteorgnamec59c\"\u003eaccessControl.createOrganizationRemote(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nIMPORTANT This does not work with the API-TOKEN.\nCreate an organization\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eorgName\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name to create\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.createOrganization(\"my_org_name\").then(result=\u0026gt;{\n     console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getpendingorginvites\"\u003egetPendingOrgInvites\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetpendingorginvitesorgnamec62c\"\u003eaccessControl.getPendingOrgInvites([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nGet the pending invitations list.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cp\u003e\u003cstrong\u003eExample\u003c/strong\u003e  \u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst invitationList = accessControl.getPendingOrgInvites().then(result=\u0026gt;{\n   console.log(invitationList)\n})\n//this will return an array of invitations object like this\n//[{@id: \"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9c0dfc2ac51161ef5ba\ncb0988d992c4bce82b3fa5d25\"\n//      @type: \"Invitation\"\n//      creation_date: \"2021-10-22T11:13:28.762Z\"\n//      email_to: \"new_user@terminusdb.com\"\n//      invited_by: \"User/auth0%7C6162f8ab33567406a6bee0c\"\n//      role: \"Role/dataReader\"\n//      status: \"needs_invite\"}]\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"sendorginvite\"\u003esendOrgInvite\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolsendorginviteuseremailrolenoteorgnamec65c\"\u003eaccessControl.sendOrgInvite(userEmail, role, [note], [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nSend a new invitation\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserEmail\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe email of user.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003erole\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe role for user. (the document @id role like Role/collaborator)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[note]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe note to send with the invitation.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.sendOrgInvite(\"new_user@terminusdb.com\",\"Role/admin\",\n\"please join myteam\").then(result=\u0026gt;{\n   console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getorginvite\"\u003egetOrgInvite\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetorginviteinviteidorgnamec71c\"\u003eaccessControl.getOrgInvite(inviteId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nGet the invitation info\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003einviteId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe invite id to retrieve.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst fullInviteId=\"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9c0dfc\n2ac51161ef5ba7cb0988d992c4bce82b3fa5d25\"\naccessControl.getOrgInvite(fullInviteId).then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"deleteorginvite\"\u003edeleteOrgInvite\u003c/h2\u003e\n\u003ch5 id=\"accesscontroldeleteorginviteinviteidorgnamec75c\"\u003eaccessControl.deleteOrgInvite(inviteId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nDelete an invitation\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003einviteId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe invite id to delete.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst fullInviteId=\"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9\nc0dfc2ac51161ef5ba7cb0988d992c4bce82b3fa5d25\"\naccessControl.deleteOrgInvite(fullInviteId).then(result=\u0026gt;{\n     console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"updateorginvitestatus\"\u003eupdateOrgInviteStatus\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolupdateorginvitestatusinviteidacceptedorgnamec79c\"\u003eaccessControl.updateOrgInviteStatus(inviteId, accepted, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nAccept /Reject invitation. if the invitation has been accepted we add the current user\nto the organization.\nthe only user that can accept this invitation is the user registered with the invitation email,\nwe indentify the user with the jwt token\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003einviteId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe invite id to updated.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eaccepted\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eboolean\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe status of the invitation.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst fullInviteId=\"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9\nc0dfc2ac51161ef5ba7cb0988d992c4bce82b3fa5d25\"\naccessControl.updateOrgInviteStatus(fullInviteId,true).then(result=\u0026gt;{\n  console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getteamuserrole\"\u003egetTeamUserRole\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetteamuserroleorgnamec84c\"\u003eaccessControl.getTeamUserRole([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API ---\nGet the user role for a given organization or the default organization\nThe user is identified by the jwt or the access token\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.getTeamUserRole().then(result=\u0026gt;{\n console.log(result)\n})\n//response object example\n{\"userRole\":\"Role/admin\"}\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"removeuserfromorg\"\u003eremoveUserFromOrg\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolremoveuserfromorguseridorgnamec87c\"\u003eaccessControl.removeUserFromOrg(userId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nRemove an user from an organization, only an admin user can remove an user from an organization\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe id of the user to be removed. (this is the document user's @id)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name in which the user is to be removed.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.removeUserFromOrg(\"User/auth0%7C613f5dnndjdjkTTT\",\"my_org_name\").then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"getdatabaserolesofuser\"\u003egetDatabaseRolesOfUser\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolgetdatabaserolesofuseruseridorgnamec91c\"\u003eaccessControl.getDatabaseRolesOfUser(userId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nGet the user's role for every databases under the organization\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe user's id.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.getDatabaseRolesOfUser('User/auth0%7C61790e366377Yu6596a').then(result=\u0026gt;{\n     console.log(result)\n})\n//this is a capabilities list of databases and roles\n//[ {capability: \"Capability/b395e8523d509dec6b33aefc9baed3b2e2bfadbd4c79d4ff9b20dce2b14e2edc\"\n//if there is an id we have a user specific capabality for this database\n   // name: {@type: \"xsd:string\", @value: \"profiles_test\"}\n   // role: \"Role/dataUpdater\"\n   // scope: \"UserDatabase/7ebdfae5a02bc7e8f6d79sjjjsa4e179b1df9d4576a3b1d2e5ff3b4859\"\n   // user: \"User/auth0%7C61790e11a3966d006906596a\"},\n//{ capability: null\n// if the capability id is null the user level of access for this database is the\nsame of the team\n  //name: {@type: \"xsd:string\", @value: \"Collab002\"}\n  //role: \"Role/dataReader\"\n  // scope: \"UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f\"\n  //user: \"User/auth0%7C61790e11a3966d006906596a\"}]\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"createuserrole\"\u003ecreateUserRole\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolcreateuserroleuseridscoperoleorgnamec95c\"\u003eaccessControl.createUserRole(userId, scope, role, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nCreate a user's a role for a resource (organization/database)\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe user's id.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003escope\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe resource name/id.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003erole\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe user role to be assigned.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst dbId = \"UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f\"\naccessControl.assignUserRole('User/auth0%7C61790e11a3966d006906596a',dbId,\n\"Role/collaborator\").then(result=\u0026gt;{\n     console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"updateuserrole\"\u003eupdateUserRole\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolupdateuserroleuseridcapabilityidscoperoleorgnamec101c\"\u003eaccessControl.updateUserRole(userId, capabilityId, scope, role, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nUpdate user's a role for a resource (organization/database), (this api works only in terminusX)\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003euserId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe user's id.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003ecapabilityId\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe capability id.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003escope\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe resource name/id.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003erole\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe user role to be updated.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003econst dbId = \"UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f\"\nconst capId= \"Capability/b395e8523d509dec6b33aefc9baed3b2e2bfadbd4c79d4ff9b20dce2b14e2edc\"\naccessControl.updateUserRole('User/auth0%7C61790e11a3966d006906596a',capId,dbId,\n\"Role/dataUpdater\").then(result=\u0026gt;{\n     console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"accessrequestslist\"\u003eaccessRequestsList\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolaccessrequestslistorgnamec108c\"\u003eaccessControl.accessRequestsList([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nGet all the access request list for a specify organization\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.accessRequestsList().then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"sendaccessrequest\"\u003esendAccessRequest\u003c/h2\u003e\n\u003ch5 id=\"accesscontrolsendaccessrequestemailaffiliationnoteorgnamec111c\"\u003eaccessControl.sendAccessRequest([email], [affiliation], [note], [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nGet all the access request list for a specify organization\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[email]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe user email.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[affiliation]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe user affiliation, company, university etc..\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[note]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003ethe message for the team admin\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.sendAccessRequest(\"myemail@terminusdb.com\",\n \"my_company\",\n \"please add me to your team\"\n).then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"deleteaccessrequest\"\u003edeleteAccessRequest\u003c/h2\u003e\n\u003ch5 id=\"accesscontroldeleteaccessrequestorgnamec117c\"\u003eaccessControl.deleteAccessRequest([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\u003c/h5\u003e\n\u003cp\u003e-- TerminusX API --\nDelete an access request to join your team, only an admin user can delete it\n\u003cstrong\u003eReturns\u003c/strong\u003e: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eParam\u003c/th\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003e[orgName]\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003estring\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eThe organization name.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eExample\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003cpre\u003e\u003ccode class=\"javascript language-javascript\"\u003eaccessControl.deleteAccessRequest(\"djjdshhsuuwewueueuiHYHYYW.......\").then(result=\u0026gt;{\n console.log(result)\n})\n\u003c/code\u003e\u003c/pre\u003e","document":{"slug":"js-client-access-control-reference","title":{"value":"Access Control with the JavaScript Client Reference Guide"},"body":{"value":"**License**: Apache Version 2  \n\n## new AccessControl()\nThe AccessControl is a driver to work with\nTerminusDB and TerminusX access control api\nfor the credential you can use the JWT token, the API token or\nthe basic authentication with username and password\n\n**Example**  \n```javascript\n//connect with the API token\n//(to request a token create an account in  https://terminusdb.com/)\nconst accessContol = new AccessControl(\"https://servername.com\",\n{organization:\"my_team_name\",\ntoken:\"dGVybWludXNkYjovLy9kYXRhL2tleXNfYXB........\"})\naccessControl.getOrgUsers().then(result=\u003e{\n     console.log(result)\n})\n//connect with the jwt token this type of connection is only for the dashboard\n//or for application integrate with our login workflow\nconst accessContol = new AccessControl(\"https://servername.com\",\n{organization:\"my_team_name\",\njwt:\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpXUjBIOXYyeTFORUd........\"})\naccessControl.getOrgUsers().then(result=\u003e{\n     console.log(result)\n})\n//if the jwt is expired you can change it with\naccessControl.setJwtToken(\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkpXUjBIOXYy\neTFORUd.......\")\n//connect with the base authentication this type of connection is only for the local installation\nconst accessContol = new AccessControl(\"http://localhost:6363\",\n{organization:\"my_team_name\", user:\"admin\"\nkey:\"mykey\"})\naccessControl.getOrgUsers().then(result=\u003e{\n    console.log(result)\n})\n```\n\n## getDefaultOrganization\n##### accessControl.getDefaultOrganization(params) ⇒ \u003ccode\u003estring\u003c/code\u003e \\| \u003ccode\u003eundefined\u003c/code\u003e\nGet a organization from parameters.\n\n**Returns**: \u003ccode\u003estring\u003c/code\u003e \\| \u003ccode\u003eundefined\u003c/code\u003e - - organization  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| params | \u003ccode\u003eobject\u003c/code\u003e | The parameters |\n\n\n## setJwtToken\n##### accessControl.setJwtToken(jwt)\nSets the Jwt token for the object\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| jwt | \u003ccode\u003estring\u003c/code\u003e | The jwt api token to use |\n\n\n## setApiToken\n##### accessControl.setApiToken(atokenpi)\nSets the API token for the object, to request a token create an account in  https://terminusdb.com/\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| atokenpi | \u003ccode\u003estring\u003c/code\u003e | The API token to use to connect with TerminusX |\n\n\n## setApiKey\n##### accessControl.setApiKey(atokenpi)\nSets the API token for the object, to request a token create an account in  https://terminusdb.com/\n\n\n| Param | Type | Description |\n| --- | --- | --- |\n| atokenpi | \u003ccode\u003estring\u003c/code\u003e | The API token to use to connect with TerminusX |\n\n\n## getAPIUrl\n##### accessControl.getAPIUrl(cloudAPIUrl) ⇒ \u003ccode\u003estring\u003c/code\u003e\nGet a API url from cloudAPIUrl\n\n**Returns**: \u003ccode\u003estring\u003c/code\u003e - apiUrl  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| cloudAPIUrl | \u003ccode\u003estring\u003c/code\u003e | The base url for cloud |\n\n\n## customHeaders\n##### accessControl.customHeaders(customHeaders) ⇒ \u003ccode\u003eobject\u003c/code\u003e\nadd extra headers to your request\n\n\n| Param | Type |\n| --- | --- |\n| customHeaders | \u003ccode\u003eobject\u003c/code\u003e | \n\n\n## getOrganization\n##### accessControl.getOrganization(organization) ⇒ \u003ccode\u003eobject\u003c/code\u003e\n-- TerminusDB API ---\nGet an organization from the TerminusDB API.\n\n**Returns**: \u003ccode\u003eobject\u003c/code\u003e - - organization  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| organization | \u003ccode\u003estring\u003c/code\u003e | The organization |\n\n\n## getAllOrganizations\n##### accessControl.getAllOrganizations() ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusDB API ---\nThis end point works in basic authentication, admin user\nGet list of organizations\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n## createOrganization\n##### accessControl.createOrganization(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusDB API ---\nThis end point works in basic authentication, admin user\nCreate an organization\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| orgName | \u003ccode\u003estring\u003c/code\u003e | The organization name to create |\n\n**Example**  \n```javascript\naccessControl.createOrganization(\"my_org_name\").then(result=\u003e{\n     console.log(result)\n})\n```\n\n## deleteOrganization\n##### accessControl.deleteOrganization(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusDB API ---\nDelete an Organization\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| orgName | \u003ccode\u003estring\u003c/code\u003e | The organization name to delete |\n\n**Example**  \n```javascript\naccessControl.createOrganization(\"my_org_name\").then(result=\u003e{\n     console.log(result)\n})\n```\n\n## createRole\n##### accessControl.createRole([name], [actions]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n--TerminusDB API ---\nbasic authentication, admin user.\nCreate a new role in the system database.\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| [name] | \u003ccode\u003estring\u003c/code\u003e | The role name. |\n| [actions] | \u003ccode\u003etypedef.RolesActions\u003c/code\u003e | A list of actions |\n\n**Example**  \n```javascript\naccessControl.createRole(\"Reader\",[ACTIONS.INSTANCE_READ_ACCESS]).then(result=\u003e{\n console.log(result)\n})\n```\n\n## deleteRole\n##### accessControl.deleteRole([name]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusdDB API ---\nbasic Authentication, admin user.\nDelete role in the system database, (this api is enabled only in the local installation)\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| [name] | \u003ccode\u003estring\u003c/code\u003e | The role name. |\n\n**Example**  \n```javascript\naccessControl.deleteRole(\"Reader\").then(result=\u003e{\n console.log(result)\n})\n```\n\n## getAllUsers\n##### accessControl.getAllUsers() ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusdDB API ---\nbasic Authentication, admin user.\nReturn the list of all the users (this api is enabled only in the local installation)\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n**Example**  \n```javascript\naccessControl.getAllUsers().then(result=\u003e{\n console.log(result)\n})\n```\n\n## createUser\n##### accessControl.createUser(name, [password]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusdDB API ---\nbasic Authentication, admin user.\nAdd the user into the system database\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| name | \u003ccode\u003estring\u003c/code\u003e | the user name |\n| [password] | \u003ccode\u003estring\u003c/code\u003e | you need the password for basic authentication |\n\n**Example**  \n```javascript\naccessControl.deleteUser(userId).then(result=\u003e{\n console.log(result)\n})\n```\n\n## deleteUser\n##### accessControl.deleteUser(userId) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusdDB API ---\nbasic Authentication, admin user.\nRemove the user from the system database.\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| userId | \u003ccode\u003estring\u003c/code\u003e | the document user id |\n\n**Example**  \n```javascript\naccessControl.deleteUser(userId).then(result=\u003e{\n console.log(result)\n})\n```\n\n## manageCapability\n##### accessControl.manageCapability(userName, resourceName, rolesArr, operation, scopeType) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusdDB API ---\nGrant/Revoke Capability\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| userName | \u003ccode\u003estring\u003c/code\u003e | the document user id |\n| resourceName | \u003ccode\u003estring\u003c/code\u003e | the name of a (database or team) |\n| rolesArr | \u003ccode\u003earray\u003c/code\u003e | the roles name list |\n| operation | \u003ccode\u003etypedef.CapabilityCommand\u003c/code\u003e | grant/revoke operation |\n| scopeType | \u003ccode\u003etypedef.ScopeType\u003c/code\u003e | the resource type (database or organization) |\n\n**Example**  \n```javascript\n//we add an user to an organization and manage users' access\n//the user myUser can  access the Organization and all the database under the organization with \"reader\" Role\nclient.manageCapability(myUser,myteam,[reader],\"grant\",\"organization\").then(result=\u003e{\n consol.log(result)\n})\n//the user myUser can  access the database db__001 under the organization myteam\n//with \"writer\" Role\nclient.manageCapability(myUser,myteam/db__001,[writer],\"grant\",\"database\").then(result=\u003e{\n consol.log(result)\n})\n```\n\n## getAccessRoles\n##### accessControl.getAccessRoles() ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n--TerminusX and TerminusDB API ---\nGet all the system database roles types.\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n## getOrgUsers\n##### accessControl.getOrgUsers([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX and TerminusDB API --\nGet all the organization's users and roles,\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n\n**Example**  \n```javascript\naccessControl.getOrgUsers().then(result=\u003e{\n console.log(result)\n})\n//this function will return an array of capabilities with users and roles\n//-- TerminusX --  response array example\n//[{capability: \"Capability/3ea26e1d698821c570afe9cb4fe81a3......\"\n//     email: {@type: \"xsd:string\", @value: \"user@terminusdb.com\"}\n//     picture: {@type: \"xsd:string\",…}\n//     role: \"Role/dataReader\"\n//     scope: \"Organization/my_org_name\"\n//     user: \"User/auth0%7C613f5dnndjdjkTTT\"}]\n//\n//\n// -- Local Installation -- response array example\n//[{ \"@id\":\"User/auth0%7C615462f8ab33f4006a6bee0c\",\n//  \"capability\": [{\n//   \"@id\":\"Capability/c52af34b71f6f8916ac0115ecb5fe0e31248ead8b1e3d100852015...\",\n//   \"@type\":\"Capability\",\n//  \"role\": [{\n//    \"@id\":\"Role/admin\",\n//    \"@type\":\"Role\",\n//    \"action\": [\"instance_read_access\"],\n//     \"name\":\"Admin Role\"\n//     }],\n//  \"scope\":\"Organization/@team\"}]]\n```\n\n## getTeamUserRoles\n##### accessControl.getTeamUserRoles([userName], [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX and TerminusDB API --\nGet the user roles for a given organization or the default organization,\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| [userName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n\n**Example**  \n```javascript\naccessControl.getTeamUserRole(\"myUser\").then(result=\u003e{\n console.log(result)\n})\n//response object example\n{\n \"@id\": \"User/myUser\",\n  \"capability\": [\n        {\n          \"@id\":\"Capability/server_access\",\n          \"@type\":\"Capability\",\n          \"role\": [{\n             \"@id\":\"Role/reader\",\n              \"@type\":\"Role\",\n             \"action\": [\n                \"instance_read_access\",\n             ],\n              \"name\":\"reader\"\n            }],\n          \"scope\":\"Organization/myteam\"\n        }\n      ],\n  \"name\": \"myUser\"\n}\n```\n\n## ifOrganizationExists\n##### accessControl.ifOrganizationExists(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nCheck if the organization exists. it is a Head call .\nIMPORTANT This does not work with the API-TOKEN.\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call status object,  200: if the organization\nexists and 404: if the organization does not exist  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| orgName | \u003ccode\u003estring\u003c/code\u003e | The organization name to check if exists. |\n\n\n## createOrganizationRemote\n##### accessControl.createOrganizationRemote(orgName) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nIMPORTANT This does not work with the API-TOKEN.\nCreate an organization\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| orgName | \u003ccode\u003estring\u003c/code\u003e | The organization name to create |\n\n**Example**  \n```javascript\naccessControl.createOrganization(\"my_org_name\").then(result=\u003e{\n     console.log(result)\n})\n```\n\n## getPendingOrgInvites\n##### accessControl.getPendingOrgInvites([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nGet the pending invitations list.\n\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n\n| Param | Type | Description |\n| --- | --- | --- |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n\n**Example**  \n```javascript\nconst invitationList = accessControl.getPendingOrgInvites().then(result=\u003e{\n   console.log(invitationList)\n})\n//this will return an array of invitations object like this\n//[{@id: \"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9c0dfc2ac51161ef5ba\ncb0988d992c4bce82b3fa5d25\"\n//      @type: \"Invitation\"\n//      creation_date: \"2021-10-22T11:13:28.762Z\"\n//      email_to: \"new_user@terminusdb.com\"\n//      invited_by: \"User/auth0%7C6162f8ab33567406a6bee0c\"\n//      role: \"Role/dataReader\"\n//      status: \"needs_invite\"}]\n```\n## sendOrgInvite\n##### accessControl.sendOrgInvite(userEmail, role, [note], [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nSend a new invitation\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| userEmail | \u003ccode\u003estring\u003c/code\u003e | The email of user. |\n| role | \u003ccode\u003estring\u003c/code\u003e | The role for user. (the document @id role like Role/collaborator) |\n| [note] | \u003ccode\u003estring\u003c/code\u003e | The note to send with the invitation. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\naccessControl.sendOrgInvite(\"new_user@terminusdb.com\",\"Role/admin\",\n\"please join myteam\").then(result=\u003e{\n   console.log(result)\n})\n```\n## getOrgInvite\n##### accessControl.getOrgInvite(inviteId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nGet the invitation info\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| inviteId | \u003ccode\u003estring\u003c/code\u003e | The invite id to retrieve. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\nconst fullInviteId=\"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9c0dfc\n2ac51161ef5ba7cb0988d992c4bce82b3fa5d25\"\naccessControl.getOrgInvite(fullInviteId).then(result=\u003e{\n console.log(result)\n})\n```\n## deleteOrgInvite\n##### accessControl.deleteOrgInvite(inviteId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nDelete an invitation\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| inviteId | \u003ccode\u003estring\u003c/code\u003e | The invite id to delete. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\nconst fullInviteId=\"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9\nc0dfc2ac51161ef5ba7cb0988d992c4bce82b3fa5d25\"\naccessControl.deleteOrgInvite(fullInviteId).then(result=\u003e{\n     console.log(result)\n})\n```\n## updateOrgInviteStatus\n##### accessControl.updateOrgInviteStatus(inviteId, accepted, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nAccept /Reject invitation. if the invitation has been accepted we add the current user\nto the organization.\nthe only user that can accept this invitation is the user registered with the invitation email,\nwe indentify the user with the jwt token\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| inviteId | \u003ccode\u003estring\u003c/code\u003e | The invite id to updated. |\n| accepted | \u003ccode\u003eboolean\u003c/code\u003e | The status of the invitation. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\nconst fullInviteId=\"Organization/my_team_name/invitations/Invitation/7ad0c9eb82b6175bcda9\nc0dfc2ac51161ef5ba7cb0988d992c4bce82b3fa5d25\"\naccessControl.updateOrgInviteStatus(fullInviteId,true).then(result=\u003e{\n  console.log(result)\n})\n```\n## getTeamUserRole\n##### accessControl.getTeamUserRole([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API ---\nGet the user role for a given organization or the default organization\nThe user is identified by the jwt or the access token\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\naccessControl.getTeamUserRole().then(result=\u003e{\n console.log(result)\n})\n//response object example\n{\"userRole\":\"Role/admin\"}\n```\n## removeUserFromOrg\n##### accessControl.removeUserFromOrg(userId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nRemove an user from an organization, only an admin user can remove an user from an organization\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| userId | \u003ccode\u003estring\u003c/code\u003e | The id of the user to be removed. (this is the document user's @id) |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name in which the user is to be removed. |\n**Example**  \n```javascript\naccessControl.removeUserFromOrg(\"User/auth0%7C613f5dnndjdjkTTT\",\"my_org_name\").then(result=\u003e{\n console.log(result)\n})\n```\n## getDatabaseRolesOfUser\n##### accessControl.getDatabaseRolesOfUser(userId, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nGet the user's role for every databases under the organization\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| userId | \u003ccode\u003estring\u003c/code\u003e | The user's id. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\naccessControl.getDatabaseRolesOfUser('User/auth0%7C61790e366377Yu6596a').then(result=\u003e{\n     console.log(result)\n})\n//this is a capabilities list of databases and roles\n//[ {capability: \"Capability/b395e8523d509dec6b33aefc9baed3b2e2bfadbd4c79d4ff9b20dce2b14e2edc\"\n//if there is an id we have a user specific capabality for this database\n   // name: {@type: \"xsd:string\", @value: \"profiles_test\"}\n   // role: \"Role/dataUpdater\"\n   // scope: \"UserDatabase/7ebdfae5a02bc7e8f6d79sjjjsa4e179b1df9d4576a3b1d2e5ff3b4859\"\n   // user: \"User/auth0%7C61790e11a3966d006906596a\"},\n//{ capability: null\n// if the capability id is null the user level of access for this database is the\nsame of the team\n  //name: {@type: \"xsd:string\", @value: \"Collab002\"}\n  //role: \"Role/dataReader\"\n  // scope: \"UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f\"\n  //user: \"User/auth0%7C61790e11a3966d006906596a\"}]\n```\n## createUserRole\n##### accessControl.createUserRole(userId, scope, role, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nCreate a user's a role for a resource (organization/database)\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| userId | \u003ccode\u003estring\u003c/code\u003e | The user's id. |\n| scope | \u003ccode\u003estring\u003c/code\u003e | The resource name/id. |\n| role | \u003ccode\u003estring\u003c/code\u003e | The user role to be assigned. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\nconst dbId = \"UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f\"\naccessControl.assignUserRole('User/auth0%7C61790e11a3966d006906596a',dbId,\n\"Role/collaborator\").then(result=\u003e{\n     console.log(result)\n})\n```\n## updateUserRole\n##### accessControl.updateUserRole(userId, capabilityId, scope, role, [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nUpdate user's a role for a resource (organization/database), (this api works only in terminusX)\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| userId | \u003ccode\u003estring\u003c/code\u003e | The user's id. |\n| capabilityId | \u003ccode\u003estring\u003c/code\u003e | The capability id. |\n| scope | \u003ccode\u003estring\u003c/code\u003e | The resource name/id. |\n| role | \u003ccode\u003estring\u003c/code\u003e | The user role to be updated. |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\nconst dbId = \"UserDatabase/acfcc2db02b83792sssb15239ccdf586fc5b176846ffe4878b1aea6a36c8f\"\nconst capId= \"Capability/b395e8523d509dec6b33aefc9baed3b2e2bfadbd4c79d4ff9b20dce2b14e2edc\"\naccessControl.updateUserRole('User/auth0%7C61790e11a3966d006906596a',capId,dbId,\n\"Role/dataUpdater\").then(result=\u003e{\n     console.log(result)\n})\n```\n## accessRequestsList\n##### accessControl.accessRequestsList([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nGet all the access request list for a specify organization\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\naccessControl.accessRequestsList().then(result=\u003e{\n console.log(result)\n})\n```\n## sendAccessRequest\n##### accessControl.sendAccessRequest([email], [affiliation], [note], [orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nGet all the access request list for a specify organization\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| [email] | \u003ccode\u003estring\u003c/code\u003e | the user email. |\n| [affiliation] | \u003ccode\u003estring\u003c/code\u003e | the user affiliation, company, university etc.. |\n| [note] | \u003ccode\u003estring\u003c/code\u003e | the message for the team admin |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\naccessControl.sendAccessRequest(\"myemail@terminusdb.com\",\n \"my_company\",\n \"please add me to your team\"\n).then(result=\u003e{\n console.log(result)\n})\n```\n## deleteAccessRequest\n##### accessControl.deleteAccessRequest([orgName]) ⇒ \u003ccode\u003ePromise\u003c/code\u003e\n-- TerminusX API --\nDelete an access request to join your team, only an admin user can delete it\n**Returns**: \u003ccode\u003ePromise\u003c/code\u003e - A promise that returns the call response object, or an Error if rejected.  \n| Param | Type | Description |\n| --- | --- | --- |\n| [orgName] | \u003ccode\u003estring\u003c/code\u003e | The organization name. |\n**Example**  \n```javascript\naccessControl.deleteAccessRequest(\"djjdshhsuuwewueueuiHYHYYW.......\").then(result=\u003e{\n console.log(result)\n})\n```"},"seo_metadata":{"description":"A reference guide to help you understand access control using the JavaScript Client","og_image":"https://assets.terminusdb.com/docs/technical-documentation-terminuscms-og.png","title":"Access Control with the JavaScript Client Reference Guide"}}},"menu":[{"MenuTitle":"Start with TerminusCMS","Order":null,"menu_order":"1","Level1":[{"Menu1Label":"Get Started","Order":"1","Menu1Page":{"slug":"get-started"},"Level2":[]},{"Menu1Label":"Product Tour","Order":"2","Menu1Page":{"slug":"product-tour"},"Level2":[{"Menu2Label":"Overview","Order":"3","Menu2Page":{"slug":"projects-terminuscms-tour"},"Level3":[]},{"Menu2Label":"Teams \u0026 Users","Order":"4","Menu2Page":{"slug":"manage-teams-users-terminuscms-tour"},"Level3":[]},{"Menu2Label":"Curate Data","Order":"5","Menu2Page":{"slug":"content-curation-terminuscms-tour"},"Level3":[]},{"Menu2Label":"Change Requests","Order":"6","Menu2Page":{"slug":"change-request-workflows-terminuscms-tour"},"Level3":[]},{"Menu2Label":"GraphQL \u0026 WOQL Query","Order":"7","Menu2Page":{"slug":"graphql-and-woql-query-terminuscms-tour"},"Level3":[]}]},{"Menu1Label":"Connect to TerminusCMS","Order":"8","Menu1Page":{"slug":"how-to-connect-terminuscms"},"Level2":[]}]},{"MenuTitle":"Start with TerminusDB","Order":null,"menu_order":"2","Level1":[{"Menu1Label":"Get Started with TerminusDB","Order":"132","Menu1Page":{"slug":"get-started-with-terminusdb"},"Level2":[]},{"Menu1Label":"Install Options","Order":"133","Menu1Page":{"slug":"terminusdb-install-options"},"Level2":[{"Menu2Label":"Install on Kubernetes","Order":"4","Menu2Page":{"slug":"install-on-kubernetes"},"Level3":[]},{"Menu2Label":"Install as a Docker Container","Order":"135","Menu2Page":{"slug":"install-terminusdb-as-a-docker-container"},"Level3":[]},{"Menu2Label":"Install from Source Code","Order":"136","Menu2Page":{"slug":"install-terminusdb-from-source-code"},"Level3":[]}]},{"Menu1Label":"CLI Commands","Order":"137","Menu1Page":{"slug":"terminusdb-cli-commands"},"Level2":[]}]},{"MenuTitle":"How-To Guides","Order":null,"menu_order":"3","Level1":[{"Menu1Label":"Clone a Demo Project","Order":"9","Menu1Page":{"slug":"clone-a-demo-terminuscms-project"},"Level2":[]},{"Menu1Label":"Use the Clients","Order":"10","Menu1Page":{"slug":"use-the-clients"},"Level2":[{"Menu2Label":"Use the JS Client","Order":"11","Menu2Page":{"slug":"use-the-javascript-client"},"Level3":[{"Menu3Label":"Install JS Client","Order":"12","Menu3Page":{"slug":"install-terminusdb-js-client"}},{"Menu3Label":"Connect to JS Client","Order":"13","Menu3Page":{"slug":"connect-with-the-javascript-client"}},{"Menu3Label":"Create DB with JS","Order":"14","Menu3Page":{"slug":"create-a-database"}},{"Menu3Label":"Connect to DB with JS","Order":"15","Menu3Page":{"slug":"connect-to-a-database"}},{"Menu3Label":"Add a Schema with JS","Order":"16","Menu3Page":{"slug":"add-a-schema"}},{"Menu3Label":"Add Doc with JS","Order":"17","Menu3Page":{"slug":"add-a-document"}},{"Menu3Label":"Edit Docs with JS","Order":"18","Menu3Page":{"slug":"edit-a-document"}},{"Menu3Label":"Delete Docs with JS","Order":"19","Menu3Page":{"slug":"delete-a-document"}},{"Menu3Label":"Get Docs with JS","Order":"20","Menu3Page":{"slug":"get-documents"}},{"Menu3Label":"Query Docs with JS","Order":"21","Menu3Page":{"slug":"query-documents"}},{"Menu3Label":"Run WOQL Query","Order":"21","Menu3Page":{"slug":"run-woql-query"}}]},{"Menu2Label":"Use the Python Client","Order":"23","Menu2Page":{"slug":"use-the-python-client"},"Level3":[{"Menu3Label":"Install Python Client","Order":"24","Menu3Page":{"slug":"install-the-python-client"}},{"Menu3Label":"Connect with Python Client","Order":"25","Menu3Page":{"slug":"connect-with-python-client"}},{"Menu3Label":"Create DB with Python","Order":"26","Menu3Page":{"slug":"create-database-with-python-client"}},{"Menu3Label":"Connect to DB with Python","Order":"27","Menu3Page":{"slug":"connect-to-a-database-with-python-client"}},{"Menu3Label":"Add Docs with Python","Order":"28","Menu3Page":{"slug":"add-documents-with-python-client"}},{"Menu3Label":"Add Schema with Python","Order":"29","Menu3Page":{"slug":"add-a-schema-with-the-python-client"}},{"Menu3Label":"Edit Docs with Python","Order":"30","Menu3Page":{"slug":"edit-documents-with-python-client"}},{"Menu3Label":"Get Docs with Python","Order":"31","Menu3Page":{"slug":"get-documents-with-python-client"}},{"Menu3Label":"Delete Docs with Python","Order":"32","Menu3Page":{"slug":"delete-documents-with-python-client"}},{"Menu3Label":"Import Data with Python","Order":"33","Menu3Page":{"slug":"import-data-with-python-client"}},{"Menu3Label":"WOQL Query with Python","Order":"34","Menu3Page":{"slug":"woql-query-with-python-client"}}]}]},{"Menu1Label":"Collaboration Features","Order":"35","Menu1Page":{"slug":"use-the-collaboration-features"},"Level2":[{"Menu2Label":"Collaboration with JS","Order":"36","Menu2Page":{"slug":"collaboration-with-javascript-client"},"Level3":[{"Menu3Label":"Clone with JS","Order":"37","Menu3Page":{"slug":"clone-a-project"}},{"Menu3Label":"Branch with JS","Order":"38","Menu3Page":{"slug":"branch-a-project"}},{"Menu3Label":"Reset with JS","Order":"39","Menu3Page":{"slug":"reset-a-project"}},{"Menu3Label":"Squash with JS","Order":"40","Menu3Page":{"slug":"squash-projects"}},{"Menu3Label":"Time Travel with JS","Order":"41","Menu3Page":{"slug":"time-travel-to-previous-commits"}},{"Menu3Label":"Diff \u0026 Patch with JS","Order":"42","Menu3Page":{"slug":"diff-and-patch-operations"}}]},{"Menu2Label":"Collaboration with Python","Order":"43","Menu2Page":{"slug":"collaboration-with-python-client"},"Level3":[{"Menu3Label":"Branch with Python","Order":"44","Menu3Page":{"slug":"branch-a-project-with-the-python-client"}},{"Menu3Label":"Clone with Python","Order":"45","Menu3Page":{"slug":"clone-a-database-with-python"}},{"Menu3Label":"Reset with Python","Order":"46","Menu3Page":{"slug":"reset-to-a-commit-with-python"}},{"Menu3Label":"Squash with Python","Order":"47","Menu3Page":{"slug":"squash-a-project-with-python"}},{"Menu3Label":"Time Travel with Python","Order":"48","Menu3Page":{"slug":"time-travel-with-python"}}]},{"Menu2Label":"Collaboration Dashboard","Order":"50","Menu2Page":{"slug":"collaboration-with-terminuscms-dashboard"},"Level3":[{"Menu3Label":"Branch with Dashboard","Order":"51","Menu3Page":{"slug":"branch"}},{"Menu3Label":"Clone with Dashboard","Order":"52","Menu3Page":{"slug":"clone"}},{"Menu3Label":"Reset with Dashboard","Order":"53","Menu3Page":{"slug":"reset"}},{"Menu3Label":"Squash with Dashboard","Order":"54","Menu3Page":{"slug":"squash"}},{"Menu3Label":"Time Travel with Dashboard","Order":"55","Menu3Page":{"slug":"time-travel"}}]}]},{"Menu1Label":"Use VectorLink","Order":"36","Menu1Page":{"slug":"use-vectorlink"},"Level2":[{"Menu2Label":"Add OpenAI Key","Order":"1","Menu2Page":{"slug":"set-up-vectorlink"},"Level3":[]},{"Menu2Label":"Configure Vector Embeddings","Order":"2","Menu2Page":{"slug":"openai-handlebars-config"},"Level3":[]},{"Menu2Label":"Index Your Data","Order":"3","Menu2Page":{"slug":"index-your-data"},"Level3":[]}]},{"Menu1Label":"Build Schema","Order":"56","Menu1Page":{"slug":"model-schema"},"Level2":[{"Menu2Label":"Model Schema UI","Order":"57","Menu2Page":{"slug":"use-the-model-builder-ui"},"Level3":[]},{"Menu2Label":"JSON Editor","Order":"58","Menu2Page":{"slug":"use-the-json-editor"},"Level3":[]}]},{"Menu1Label":"Manage Projects","Order":"65","Menu1Page":{"slug":"manage-projects-with-terminuscms"},"Level2":[{"Menu2Label":"Create Teams with UI","Order":"2","Menu2Page":{"slug":"create-a-team-with-terminuscms"},"Level3":[]},{"Menu2Label":"Create Projects with UI","Order":"3","Menu2Page":{"slug":"create-a-project-with-terminuscms"},"Level3":[]},{"Menu2Label":"Invite Users with UI","Order":"4","Menu2Page":{"slug":"invite-users-using-terminuscms"},"Level3":[]},{"Menu2Label":"Get API Key","Order":"5","Menu2Page":{"slug":"get-your-api-key-from-terminuscms"},"Level3":[]}]},{"Menu1Label":"Query","Order":"70","Menu1Page":{"slug":"how-to-query"},"Level2":[{"Menu2Label":"GraphQL Query","Order":"71","Menu2Page":{"slug":"how-to-query-with-graphql"},"Level3":[{"Menu3Label":"GraphQL Basics","Order":"72","Menu3Page":{"slug":"graphql-basics"}},{"Menu3Label":"GraphQL Filter","Order":"73","Menu3Page":{"slug":"filter-with-graphql"}},{"Menu3Label":"GraphQL Advanced Filter","Order":"74","Menu3Page":{"slug":"advanced-filtering-with-graphql"}},{"Menu3Label":"GraphQL Limit","Order":"75","Menu3Page":{"slug":"limit-results-in-graphql"}},{"Menu3Label":"GraphQL Order By","Order":"76","Menu3Page":{"slug":"order-by-in-graphql"}},{"Menu3Label":"GraphQL Offset","Order":"77","Menu3Page":{"slug":"offset-to-provide-paging"}},{"Menu3Label":"GraphQL Path Queries","Order":"78","Menu3Page":{"slug":"path-queries-in-graphql"}},{"Menu3Label":"GraphQL Back Links","Order":"79","Menu3Page":{"slug":"back-links-in-graphql"}}]},{"Menu2Label":"WOQL Query","Order":"80","Menu2Page":{"slug":"how-to-query-with-woql"},"Level3":[{"Menu3Label":"WOQL Basics","Order":"81","Menu3Page":{"slug":"woql-basics"}},{"Menu3Label":"WOQL Add Docs","Order":"82","Menu3Page":{"slug":"add-documents-with-woql"}},{"Menu3Label":"WOQL Edit Docs","Order":"83","Menu3Page":{"slug":"edit-documents-with-woql"}},{"Menu3Label":"WOQL Delete Docs","Order":"84","Menu3Page":{"slug":"delete-documents-with-woql"}},{"Menu3Label":"WOQL Read Docs","Order":"85","Menu3Page":{"slug":"read-documents-with-woql"}},{"Menu3Label":"WOQL Filter","Order":"86","Menu3Page":{"slug":"filter-with-woql"}},{"Menu3Label":"WOQL Order By","Order":"87","Menu3Page":{"slug":"order-by-with-woql"}},{"Menu3Label":"WOQL Query Arrays","Order":"88","Menu3Page":{"slug":"query-arrays-and-sets-in-woql"}},{"Menu3Label":"WOQL Group Results","Order":"89","Menu3Page":{"slug":"group-query-results"}},{"Menu3Label":"WOQL Path Queries","Order":"90","Menu3Page":{"slug":"path-queries-in-woql"}},{"Menu3Label":"WOQL Math Queries","Order":"91","Menu3Page":{"slug":"maths-based-queries-in-woql"}},{"Menu3Label":"WOQL Schema Queries","Order":"92","Menu3Page":{"slug":"schema-queries-with-woql"}}]}]},{"Menu1Label":"Curate \u0026 Import Data","Order":"93","Menu1Page":{"slug":"curate-and-import-data"},"Level2":[{"Menu2Label":"Curate with Dashboard","Order":"94","Menu2Page":{"slug":"use-the-admin-ui-curate-and-import-data"},"Level3":[]},{"Menu2Label":"Import with Python","Order":"97","Menu2Page":{"slug":"import-data-with-python-client"},"Level3":[]}]}]},{"MenuTitle":"Reference Guides","Order":"4","menu_order":"4","Level1":[{"Menu1Label":"Schema Reference","Order":"1","Menu1Page":{"slug":"schema-reference-guide"},"Level2":[]},{"Menu1Label":"JS Client Reference","Order":"2","Menu1Page":{"slug":"javascript"},"Level2":[]},{"Menu1Label":"Python Client Reference","Order":"3","Menu1Page":{"slug":"python"},"Level2":[]},{"Menu1Label":"GraphQL Reference","Order":"4","Menu1Page":{"slug":"graphql-query-reference"},"Level2":[{"Menu2Label":"Connecting to GraphQL","Order":"121","Menu2Page":{"slug":"connecting-to-graphql-reference"},"Level3":[]},{"Menu2Label":"GraphQL Naming Conventions","Order":"122","Menu2Page":{"slug":"graphql-naming-conventions-reference"},"Level3":[]},{"Menu2Label":"System Graph Interface","Order":"123","Menu2Page":{"slug":"system-graph-graphql-interface-reference"},"Level3":[]},{"Menu2Label":"Connect with Apollo Client","Order":"999","Menu2Page":{"slug":"connect-with-apollo-client"},"Level3":[]}]},{"Menu1Label":"HTTP reference","Order":"5","Menu1Page":{"slug":"openapi"},"Level2":[]},{"Menu1Label":"Access Control","Order":"6","Menu1Page":{"slug":"js-access-control"},"Level2":[]},{"Menu1Label":"Supported Data Types","Order":"7","Menu1Page":{"slug":"terminuscms-data-types"},"Level2":[]},{"Menu1Label":"Document Insertion","Order":"8","Menu1Page":{"slug":"document-insertion"},"Level2":[]},{"Menu1Label":"TerminusCMS Dashboard","Order":"9","Menu1Page":{"slug":"terminuscms-dashboard-reference"},"Level2":[]},{"Menu1Label":"JSON Diff and Patch","Order":"10","Menu1Page":{"slug":"json-diff-and-patch"},"Level2":[]},{"Menu1Label":"Path Queries","Order":"11","Menu1Page":{"slug":"path-query-reference-guide"},"Level2":[]},{"Menu1Label":"Schema Migration","Order":"12","Menu1Page":{"slug":"schema-migration-reference-guide"},"Level2":[]},{"Menu1Label":"WOQL Class Reference","Order":"13","Menu1Page":{"slug":"woql-class-reference-guide"},"Level2":[]}]},{"MenuTitle":"UI SDK","Order":null,"menu_order":"5","Level1":[{"Menu1Label":"Use the Document UI SDK","Order":"1","Menu1Page":{"slug":"document-ui-sdk"},"Level2":[{"Menu2Label":"UI SDK Data Types","Order":"1","Menu2Page":{"slug":"document-ui-sdk-data-types"},"Level3":[{"Menu3Label":"Array","Order":"1","Menu3Page":{"slug":"array"}},{"Menu3Label":"Choice Document","Order":"2","Menu3Page":{"slug":"choice-document"}},{"Menu3Label":"Choice Sub-Document","Order":"3","Menu3Page":{"slug":"choice-subdocuments"}},{"Menu3Label":"List","Order":"4","Menu3Page":{"slug":"list"}},{"Menu3Label":"Mandatory","Order":"5","Menu3Page":{"slug":"mandatory"}},{"Menu3Label":"One Of","Order":"6","Menu3Page":{"slug":"oneof"}},{"Menu3Label":"Optional","Order":"7","Menu3Page":{"slug":"optional"}},{"Menu3Label":"Order By","Order":"8","Menu3Page":{"slug":"orderby"}},{"Menu3Label":"Render As","Order":"9","Menu3Page":{"slug":"render-as"}},{"Menu3Label":"Set","Order":"10","Menu3Page":{"slug":"set"}},{"Menu3Label":"sysJSON","Order":"11","Menu3Page":{"slug":"sysjson"}}]},{"Menu2Label":"UI SDK GeoJSON","Order":"2","Menu2Page":{"slug":"ui-sdk-geojson"},"Level3":[]}]},{"Menu1Label":"Document UI Template","Order":"2","Menu1Page":{"slug":"document-ui-template"},"Level2":[{"Menu2Label":"TDB React Table","Order":"1","Menu2Page":{"slug":"tdb-react-table"},"Level3":[]},{"Menu2Label":"Use TDB Documents","Order":"2","Menu2Page":{"slug":"usetdbdocuments"},"Level3":[]},{"Menu2Label":"Use TDB GraphQL Query","Order":"3","Menu2Page":{"slug":"usetdbgraphqlquery"},"Level3":[]},{"Menu2Label":"UI Components","Order":"4","Menu2Page":{"slug":"ui-components"},"Level3":[{"Menu3Label":"Document Classes Summary","Order":"1","Menu3Page":{"slug":"documentclassessummary"}},{"Menu3Label":"Documents GraphQL Table","Order":"2","Menu3Page":{"slug":"documentsgraphqltable"}},{"Menu3Label":"Edit Documents","Order":"3","Menu3Page":{"slug":"edit-document-component"}},{"Menu3Label":"List Documents","Order":"4","Menu3Page":{"slug":"list-documents-component"}},{"Menu3Label":"New Documents","Order":"5","Menu3Page":{"slug":"newdocumentcomponent"}},{"Menu3Label":"View Documents","Order":"6","Menu3Page":{"slug":"viewdocumentcomponent"}}]}]}]},{"MenuTitle":"Explanations","Order":null,"menu_order":"6","Level1":[{"Menu1Label":"Acid Transactions","Order":"139","Menu1Page":{"slug":"acid-transactions-explanation"},"Level2":[]},{"Menu1Label":"Datalog","Order":"140","Menu1Page":{"slug":"datalog-explanation"},"Level2":[]},{"Menu1Label":"Documents","Order":"141","Menu1Page":{"slug":"documents-explanation"},"Level2":[]},{"Menu1Label":"Glossary","Order":"142","Menu1Page":{"slug":"glossary"},"Level2":[]},{"Menu1Label":"Graphs","Order":"143","Menu1Page":{"slug":"graphs-explanation"},"Level2":[]},{"Menu1Label":"Immutability","Order":"144","Menu1Page":{"slug":"immutability-explanation"},"Level2":[]},{"Menu1Label":"TerminusDB","Order":"144","Menu1Page":{"slug":"terminusdb-explanation"},"Level2":[]},{"Menu1Label":"Schema Weakening","Order":"145","Menu1Page":{"slug":"what-is-schema-weakening"},"Level2":[]},{"Menu1Label":"WOQL","Order":"146","Menu1Page":{"slug":"woql-explanation"},"Level2":[]}]}]},"__N_SSG":true},"page":"/[name]","query":{"name":"js-client-access-control-reference"},"buildId":"865kbN8-rRJQPWszKdnKZ","assetPrefix":"/docs","isFallback":false,"gsp":true,"scriptLoader":[{"strategy":"lazyOnload","data-domain":"terminusdb.com","src":"https://plausible.io/js/script.js"}]}</script></body></html>
